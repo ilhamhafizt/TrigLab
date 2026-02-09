@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrigLab | Digital Lab for Conceptual Trigonometry</title>
+    <link rel="shortcut icon" href="assets/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+        @keyframes fadeIn{
+            from{opacity:0; transform:translateY(30px)}
+            to{opacity:1; transform:translateY(0)}
+        }
+        .animate-fadeIn{animation:fadeIn 1s ease-out}
+
+    </style>
+</head>
+<body class="bg-slate-950 text-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full backdrop-blur-md border-b border-white/10 bg-indigo-950/50 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <img src="assets/logo.png" alt="logo" class="h-14">
+            <div class="space-x-8 font-semibold">
+                <a href="#beranda" class="hover:text-cyan-400">Beranda</a>
+                <a href="#tentang" class="hover:text-cyan-400">Tentang</a>
+                <a href="#modul" class="hover:text-cyan-400">Modul</a>
+                <a href="#panduan" class="hover:text-cyan-400">Panduan</a>
+            </div>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero -->
+        <header id="beranda" class="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-indigo-950 via-cyan-900 to-green-900">
+            <div class="max-w-6xl mx-auto px-6 text-center animate-fadeIn">
+                <span class="bg-cyan-800 px-4 py-1 rounded-full text-sm">
+                    Digital Learning Laboratory
+                </span>
+                <h1 class="text-5xl md:text-7xl font-bold mt-6">
+                    Interactive Trigonometry Learning Platform
+                </h1>
+                <p class="mt-6 text-lg text-gray-300 max-w-2xl mx-auto">
+                    TrigLab merupakan laboratorium pembelajaran digital yang dirancang untuk membantu mahasiswa dan siswa memahami konsep trigonometri secara konseptual melalui visualisasi interaktif, eksplorasi eksperimen, serta refleksi matematis berbasis investigasi.
+                </p>
+            </div>
+            <button id="scrollDown" class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group z-10">
+                <span class="text-sm text-white/70 group-hover:text-white transition">
+                    Learn More ↓
+                </span>
+                <div class="w-8 h-12 border-2 border-white/40 rounded-full flex justify-center">
+                    <span class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></span>
+                </div>
+            </button>
+        </header>
+
+        <!-- Tentang -->
+        <section id="tentang" class="min-h-screen py-28 bg-slate-900">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 animate-fadeIn">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Tentang TrigLab</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-justify">
+                        TrigLab adalah laboratorium pembelajaran digital yang dirancang untuk membantu siswa memahami konsep trigonometri melalui pendekatan visual, eksperimen, interaktif, serta refleksi matematis berbasis investigasi.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-justify">
+                        Melalui simulasi grafik dan eksplorasi visual unit circle, pengguna dapat mengamati hubungan antar konsep secara dinamis sehingga pemahaman konseptual menjadi lebih mendalam dan bermakna.
+                    </p>
+                    
+                    <div class="mt-10">
+                        <a href="#modul" class="bg-indigo-700/80 backdrop-blur inline-block px-7 py-3 rounded-full text-white font-medium border border-indigo-500/40 hover:bg-indigo-600 transition">
+                            Lihat Modul
+                            <span class="tex-lg">→</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="flex justify-center">
+                    <img src="assets/unit-circle.png" alt="unit-circle" class="relative z-10 w-[420px] rounded-2xl">
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Modul -->
+        <section id="modul" class="min-h-screen py-28">
+            <div class="max-w-6xl mx-auto px-6 animate-fadeIn">
+                <h2 class="text-4xl font-bold mb-12 text-center">Modul Pembelajaran</h2>
+                <div class="grid md:grid-cols-3 gap-8 text-justify">
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 1 — Sudut dan Radian</h3>
+                        <p class="text-gray-400 mb-4">Memahami konsep ukuran sudut dalam derajat dan radian serta hubungan geometris pada unit circle melalui visualisasi dinamis.</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul1.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 2 — Grafik Fungsi Trigonometri</h3>
+                        <p class="text-gray-400 mb-4">Eksplorasi perubahan grafik fungsi sinus, cosinus, dan tangen berdasarkan parametri amplitudo, periode, dan translasi.</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul2.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 3 — Identitas Trigonometri</h3>
+                        <p class="text-gray-400 mb-4">Investigasi identitas trigonometri melalui eksperimen digital dan pembuktian berbasis penalaran matematis</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul3.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 4 — Persamaan Trigonometri</h3>
+                        <p class="text-gray-400 mb-4">Pemodelan dan penyelesaian persamaan trigonometri melalui pendekatan grafik dan analitik.</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul4.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 5 — Aplikasi Trigonometri</h3>
+                        <p class="text-gray-400 mb-4">Penerapan konsep trigonometri dalam masalah kontekstual seperti navigasi, fisika, dan teknik.</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul5.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+
+                    <div class="bg-slate-900 p-8 rounded-2xl hover:-translate-y-2 transition duration-300">
+                        <h3 class="text-xl text-left font-semibold mb-3">Modul 6 — Eksplorasi Reflektif</h3>
+                        <p class="text-gray-400 mb-4">Latihan refleksi konseptual dan diskusi untuk memperkuat pemahaman mendalam terhadap konsep trigonometri</p>
+                        <a class="text-cyan-400 font-semibold hover:underline" href="modul/modul6.html" target="_blank">Pelajari Modul →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Panduan -->
+        <section id="panduan" class="min-h-screen py-28 bg-slate-900">
+            <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-center px-6 animate-fadeIn">
+                <img src="assets/panduan.png" alt="panduan" class="rounded-2xl hover:scale-105 transition duration-500">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6">Panduan Penggunaan</h2>
+                    <p class="text-gray-300 leading-relaxed mb-6 text-justify">
+                        Mulailah pembelajaran dengan membaca pengantar konsep pada setiap modul, kemudian lakukan eksplorasi simulasi visual untuk memahami hubungan antara sudut, grafik, dan fungsi trigonometri secara intuitif.
+                    </p>
+                    <p class="text-gray-300 leading-relaxed text-justify">
+                        Setelah melakukan eksplorasi, kerjakan latihan refleksi yang tersedia untuk memperkuat pemahaman konseptual dan kemampuan justifikasi matematis.
+                    </p>
+
+                    <div class="mt-10">
+                        <a href="panduan/panduan.html" target="_blank" class="bg-indigo-700/80 backdrop-blur inline-block px-7 py-3 rounded-full text-white font-medium border border-indigo-500/40 hover:bg-indigo-600 transition">
+                            Baca Panduan
+                            <span class="tex-lg">→</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center bg-slate-950 text-gray-500">
+        © 2026 TrigLab — Digital Laboratory for Conceptual Trigonometry
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
