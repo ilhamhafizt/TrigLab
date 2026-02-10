@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 1 — Sudut dan Radian</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes gradientMove {
+            0%{background-position: 0% 50%;}
+            50%{background-position: 100% 50%;}
+            100%{background-position: 0% 50%;}
+        }
+
+        .bg-animated {
+            background: linear-gradient(270deg,#020617,#0f172a,#022c22);
+            background-size: 600% 600%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        canvas {
+            border-radius: 20px;
+            background: #020617;
+            box-shadow: 0 0 40px rgba(0,255,255,.2);
+        }
+    </style>
+</head>
+<body class="bg-animated text-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full backdrop-blur-md border-b border-white/10 bg-indigo-950/50 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <img src="/assets/logo.png" alt="logo" class="h-14">
+            <div class="space-x-8 font-semibold">
+                <a href="/index.html" class="hover:text-cyan-400" target="_blank">Beranda</a>
+                <a href="/panduan/panduan.html" class="hover:text-cyan-400" target="_blank">Panduan</a>
+            </div>
+        </div>
+    </nav>
+    
+    <main>
+        <!-- Hero -->
+        <header class="min-h-screen text-justify py-28">
+            <div class="max-w-6xl mx-auto text-gray-200 leading-relaxed text-justify">
+                <h1 class="text-4xl font-bold mb-3">Modul 1 — Sudut dan Radian</h1>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
+                    Apa itu sudut?
+                </h2>
+                <p class="mb-6">
+                    Sudut merupakan ukuran besar putaran yang dibentuk oleh dua garis yang bertemu pada satu titik pusat. Dalam matematika, sudut biasanya diukur menggunakna satuan <span class="font-semibold text-sky-300">derajat (°)</span> maupun <span class="font-semibold text-sky-300">radian (rad)</span>. 
+                    Pemahaman mengenai sudut sangat penting dalam trigonometri karena semua fungsi trigonometri seperti sinus, cosinus, dan tangen bergantung pada besar sudut yang digunakan.
+                </p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
+                    Derajat dan Radian
+                </h2>
+                <p class="mb-2">
+                    Selain derajat, terdapat satuan lain yang sering digunakan dalam matematika lanjutan yaitu <span class="font-semibold text-sky-300">radian</span>.
+                    Radian mengukur sudut berdasarkan panjang busur lingkaran terhadap jari-jari lingkaran tersebut. Satu putaran penuh pada lingkaran memiliki nilai:
+                </p>
+                <ul class="list-disc pl-4 mb-2 space-y-1">
+                    <li>360° dalam satuan derajat</li>
+                    <li>2π dalam satuan radian</li>
+                </ul>
+                <p class="mb-6">
+                    Hubungan antara derajat dan radian dapat dinyatakan sebagai:
+                    <span class="block mt-1 font-semibold text-sky-400 text-lg">
+                        180° = π radian
+                    </span>
+                </p>
+                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
+                    Mengapa Radian Penting?
+                </h2>
+                <p>
+                    Dalam kalkulus dan analisis matemtaika, radian digunakan sebagai satuan standar karena memberikan hubungan yang lebih alami dalam turunan, integral, serta model fenomena periodik seperti gelombang, rotasi, dan getaran.
+                    Oleh karena itu, memahami konversi antara derajat dan radian menjadi keterampilan dasar sebelum mempelajari fungsi trigonometri lebih lanjut.
+                </p>
+            </div>
+        </header>
+    </main>
+</body>
+</html>
