@@ -8,6 +8,10 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
     <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
         body {
             font-family: 'Montserrat', sans-serif;
         }
@@ -35,58 +39,135 @@
     <!-- Navbar -->
     <nav class="fixed w-full backdrop-blur-md border-b border-white/10 bg-indigo-950/50 z-50">
         <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
-            <img src="/assets/logo.png" alt="logo" class="h-14">
-            <div class="space-x-8 font-semibold">
-                <a href="/index.html" class="hover:text-cyan-400" target="_blank">Beranda</a>
-                <a href="/panduan/panduan.html" class="hover:text-cyan-400" target="_blank">Panduan</a>
+            <!-- Left -->
+            <div class="flex items-center gap-6">
+                <a href="/index.html">
+                    <img src="/assets/logo.png" alt="logo" class="h-14">
+                </a>
+                <span class="hidden md:block text-gray-500">|</span>
+                <a href="/index.html" class="hidden md:block text-gray-300 hover:text-cyan-400 transition text-sm">
+                    ← Kembali ke Beranda
+                </a>
+            </div>
+            <!-- Center (Menu) -->
+            <div class="hidden md:flex space-x-8 font-semibold text-gray-300">
+                <a href="#overview" class="hover:text-cyan-400 transition">
+                    Overview
+                </a>
+                <a href="#konsep" class="hover:text-cyan-400 transition">
+                    Konsep Dasar
+                </a>
+                <a href="#eksplorasi" class="hover:text-cyan-400 transition">
+                    Eksplorasi
+                </a>
+            </div>
+            <!-- Right -->
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block bg-cyan-500/20 border border-cyan-400/40 px-4 py-1 rounded-full text-cyan-300 text-sm font-medium">
+                    Modul 1
+                </div>
+                <!-- Mobile Button -->
+                <button id="menuBtn" class="md:hidden text-white text-2xl">
+                    ☰
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-indigo-950/95 backdrop-blur-xl border-t border-white/10">
+            <div class="px-6 py-6 space-y-5 text-gray-300 font-medium">
+                <a href="/index.html" class="block hover:text-cyan-400 transition">
+                    ← Kembali ke Beranda
+                </a>
+                <hr class="border-white/10">
+                <a href="#overview" class="block hover:text-cyan-400 transition">
+                    Overview
+                </a>
+                <a href="#materi" class="block hover:text-cyan-400 transition">
+                    Materi
+                </a>
+                <a href="#eksplorasi" class="block hover:text-cyan-400 transition">
+                    Eksplorasi
+                </a>
+                <div class="pt-4">
+                    <span class="inline-bock bg-cyan-500/20 border border-cyan-400/40 px-4 py-1 rounded-full text-cyan-300 text-sm">
+                        Modul 1
+                    </span>
+                </div>
             </div>
         </div>
     </nav>
     
     <main>
         <!-- Hero -->
-        <header class="min-h-screen text-justify py-28">
-            <div class="max-w-6xl mx-auto text-gray-200 leading-relaxed text-justify">
-                <h1 class="text-4xl font-bold mb-3">Modul 1 — Sudut dan Radian</h1>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
-                    Apa itu sudut?
-                </h2>
-                <p class="mb-6">
-                    Sudut merupakan ukuran besar putaran yang dibentuk oleh dua garis yang bertemu pada satu titik pusat. Dalam matematika, sudut biasanya diukur menggunakna satuan <span class="font-semibold text-sky-300">derajat (°)</span> maupun <span class="font-semibold text-sky-300">radian (rad)</span>. 
-                    Pemahaman mengenai sudut sangat penting dalam trigonometri karena semua fungsi trigonometri seperti sinus, cosinus, dan tangen bergantung pada besar sudut yang digunakan.
+        <header id="overview" class="min-h-screen flex items-center py-28">
+            <div class="max-w-6xl mx-auto px-6 text-gray-200">
+                <h1 class="text-4xl md:text-5xl font-bold mb-6 text-cyan-400">
+                    Modul 1 — Sudut dan Radian
+                </h1>
+                <p class="text-lg leading-relaxed mb-6">
+                    Modul ini membahas konsep dasar sudut dan satuan radian sebagai fondasi utama dalam trigonometri. Pemahaman yang kuat pada tahap ini sangat penting sebelum mempelajari fungsi sinus, cosinus, dan grafik trigonometri.
                 </p>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
-                    Derajat dan Radian
-                </h2>
-                <p class="mb-2">
-                    Selain derajat, terdapat satuan lain yang sering digunakan dalam matematika lanjutan yaitu <span class="font-semibold text-sky-300">radian</span>.
-                    Radian mengukur sudut berdasarkan panjang busur lingkaran terhadap jari-jari lingkaran tersebut. Satu putaran penuh pada lingkaran memiliki nilai:
-                </p>
-                <ul class="list-disc pl-4 mb-2 space-y-1">
-                    <li>360° dalam satuan derajat</li>
-                    <li>2π dalam satuan radian</li>
-                </ul>
-                <p class="mb-6">
-                    Hubungan antara derajat dan radian dapat dinyatakan sebagai:
-                    <span class="block mt-1 font-semibold text-sky-400 text-lg">
-                        180° = π radian
-                    </span>
-                </p>
-                <h2 class="text-2xl md:text-3xl font-semibold mb-3">
-                    Mengapa Radian Penting?
-                </h2>
-                <p>
-                    Dalam kalkulus dan analisis matemtaika, radian digunakan sebagai satuan standar karena memberikan hubungan yang lebih alami dalam turunan, integral, serta model fenomena periodik seperti gelombang, rotasi, dan getaran.
-                    Oleh karena itu, memahami konversi antara derajat dan radian menjadi keterampilan dasar sebelum mempelajari fungsi trigonometri lebih lanjut.
-                </p>
+                <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                    <h3 class="font-semibold text-cyan-300 mb-3">Tujuan Pembelajaran</h3>
+                    <ul class="list-disc pl-6 space-y-2 text-gray-300">
+                        <li>Memahami definisi sudut secara geometris</li>
+                        <li>Menjelaskan hubungan derajat dan radian</li>
+                        <li>Mengonversi sudut derajat ke radian dan sebaliknya</li>
+                        <li>Memahami makna geometris 1 radian pada lingkaran satuan</li>
+                    </ul>
+                </div>
             </div>
         </header>
 
-        <section class="min-h-screen max-w-6xl mx-auto p-20">
-            <h2 class="text-4xl font-bold text-sky-300 mb-6 text-center">
+        <!-- Konsep -->
+        <section id="konsep" class="py-28 bg-slate-900">
+            <div class="max-w-6xl mx-auto px-6 text-gray-300 leading-relaxed">
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">
+                    1. Konsep Geometris Sudut
+                </h2>
+                <p class="mb-6">
+                    Sudut adalah ukuran besar rotasi suatu garis terhadap titik pusat. Jika sebuah garis diputar dari posisi awalnya, besar rotasi tersebut dinyatakan sebagai sudut.
+                </p>
+                <p class="mb-6">
+                    Dalam satu putaran penuh, besar sudut adalah:
+                </p>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 mb-12">
+                    <p>360° dalam derajat</p>
+                    <p>2π rad dalam radian</p>
+                </div>
+                <h2 class="text-3xl font-bold text-cyan-400 mb-6">
+                    2. Derajat dan Radian
+                </h2>
+                <p class="mb-6">
+                    Derajat membagi satu lingkaran menjadi 360 bagian sama besar. Namun dalam matematika lanjut, digunakan satuan radian karena berbasis langsung pada panjang busur lingkaran.
+                </p>
+                <div class="bg-white/5 p-6 rounded-xl border border-white/10 mb-6">
+                    <p class="text-lg font-semibold text-cyan-300">
+                        180° = π rad
+                    </p>
+                </div>
+                <h3 class="text-2xl font-semibold text-cyan-300 mb-4">
+                    Contoh Konversi
+                </h3>
+                <ul class="space-y-3">
+                    <li>90° = π/2 rad</li>
+                    <li>270° = 3π/2 rad</li>
+                    <li>1 rad ≈ 57.3°</li>
+                </ul>
+                <h2 class="text-3xl font-bold text-cyan-400 my-8">
+                    3. Makna Geometris 1 Radian
+                </h2>
+                <p class="mb-6">
+                    Satu radian adalah sudut pusat yang membentuk panjang busur sama dengan panjang jari-jari lingkaran tersebut. Karena definisi ini berbasis rasio panjang, radian menjadi satuan alami dalam kalklus dan analisis fungsi periodik.
+                </p>
+            </div>
+        </section>
+
+        <section id="eksplorasi" class="min-h-screen max-w-6xl mx-auto p-28">
+            <h2 class="text-4xl font-bold text-cyan-400 mb-6 text-center">
                 Eksplorasi Interaktif — Unit Circle
             </h2>
-            <p class="text-gray-300 mb-10 max-w-3xl mx-6">
+            <p class="text-gray-300 mb-10 text-center">
                 Geser slider sudut dan amati bagaimana sudut berubah dalam derajat dan radian. 
                 <br>Perhatikan posisi titik pada lingkaran satuan.
             </p>
@@ -120,6 +201,12 @@
 
     <!-- Script -->
     <script>
+        // Mobile Menu
+        document.getElementById('menuBtn').addEventListener('click', () =>{
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Eksplorasi
         const canvas = document.getElementById('circle');
         const ctx = canvas.getContext('2d');
         canvas.width = 420;
@@ -234,8 +321,53 @@
         draw(angle);
     </script>
 
-    <footer class="py-8 text-center bg-slate-950 text-gray-500">
-        © 2026 TrigLab — Digital Laboratory for Conceptual Trigonometry
+    <footer class="bg-slate-950 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-14 text-gray-400">
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center mb-6 gap-3">
+                    <img src="/assets/logo.png" alt="logo" class="h-14">
+                    <h3 class="text-2xl font-bold text-cyan-400">TrigLab</h3>
+                </div>
+                <p class="leading-relaxed text-justify">
+                    Laboratorium Trigonometri Interaktif Digital yang dirancang untuk meningkatkan pemahaman konseptual melalui visualisasi dan eksperimen.
+                </p>
+            </div>
+            <!-- Navigation -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Navigasi</h4>
+                <ul class="space-y-2">
+                    <li><a href="/index.html" class="hover:text-cyan-400" target="_blank">Beranda</a></li>
+                    <li><a href="/index.html#tentang" class="hover:text-cyan-400" target="_blank">Tentang</a></li>
+                    <li><a href="/index.html#modul" class="hover:text-cyan-400" target="_blank">Modul</a></li>
+                </ul>
+            </div>
+            <!-- Modul -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Modul</h4>
+                <ul class="space-y-2">
+                    <li><a href="/modul/modul1.html" class="hover:text-cyan-400" target="_blank">Modul 1 — Sudut dan Radian</a></li>
+                    <li><a href="/modul/modul2.html" class="hover:text-cyan-400" target="_blank">Modul 2 — Grafik Fungsi Trigonometri</a></li>
+                    <li><a href="/modul/modul3.html" class="hover:text-cyan-400" target="_blank">Modul 3 — Identitas Trigonometri</a></li>
+                    <li><a href="/modul/modul4.html" class="hover:text-cyan-400" target="_blank">Modul 4 — Persamaan Trigonometri</a></li>
+                    <li><a href="/modul/modul5.html" class="hover:text-cyan-400" target="_blank">Modul 5 — Aplikasi Trigonometri</a></li>
+                    <li><a href="/modul/modul6.html" class="hover:text-cyan-400" target="_blank">Modul 6 — Eksplorasi Reflektif</a></li>
+                </ul>
+            </div>
+            <!-- Kontak -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Kontak</h4>
+                <p>Email: triglab@gmail.com</p>
+                <p>Indonesia</p>
+            </div>
+        </div>
+        <!-- Bottom -->
+        <div class="relative">
+            <div class="w-3/4 h-px bg-white/10 mx-auto"></div>
+            <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-right">
+                <p>© 2026 TrigLab. All rights reserved.</p>
+            </div>
+        </div>
     </footer>
 </body>
 </html>
