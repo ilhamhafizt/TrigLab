@@ -4,3 +4,8 @@ document.getElementById("scrollDown").addEventListener("click", () => {
     behavior: "smooth"
   });
 });
+
+// Mobile Menu
+document.getElementById('menuBtn').addEventListener('click', () =>{
+  document.getElementById('mobileMenu').classList.toggle('hidden');
+});
