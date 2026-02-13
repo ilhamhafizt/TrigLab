@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modul 2 — Grafik Fungsi Trigonometri</title>
+    <link rel="shortcut icon" href="/assets/favicon.png" type="image/x-icon">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap">
+    <style>
+        * {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+        }
+
+        @keyframes gradientMove {
+            0%{background-position: 0% 50%;}
+            50%{background-position: 100% 50%;}
+            100%{background-position: 0% 50%;}
+        }
+
+        .bg-animated {
+            background: linear-gradient(270deg,#020617,#0f172a,#022c22);
+            background-size: 600% 600%;
+            animation: gradientMove 12s ease infinite;
+        }
+
+        canvas {
+            border-radius: 20px;
+            background: #020617;
+            box-shadow: 0 0 40px rgba(0,255,255,.2);
+        }
+    </style>
+</head>
+<body class="bg-animated text-white">
+    <!-- Navbar -->
+    <nav class="fixed w-full backdrop-blur-md border-b border-white/10 bg-indigo-950/50 z-50">
+        <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+            <!-- Left -->
+            <div class="flex items-center gap-6">
+                <a href="/index.html">
+                    <img src="/assets/logo.png" alt="logo" class="h-14">
+                </a>
+                <span class="hidden md:block text-gray-500">|</span>
+                <a href="/index.html" class="hidden md:block text-gray-300 hover:text-cyan-400 transition text-sm">
+                    ← Kembali ke Beranda
+                </a>
+            </div>
+            <!-- Center (Menu) -->
+            <div class="hidden md:flex space-x-8 font-semibold text-gray-300">
+                <a href="#overview" class="hover:text-cyan-400 transition">
+                    Overview
+                </a>
+                <a href="#konsep" class="hover:text-cyan-400 transition">
+                    Konsep Dasar
+                </a>
+                <a href="#eksplorasi" class="hover:text-cyan-400 transition">
+                    Eksplorasi
+                </a>
+            </div>
+            <!-- Right -->
+            <div class="flex items-center gap-4">
+                <div class="hidden md:block bg-cyan-500/20 border border-cyan-400/40 px-4 py-1 rounded-full text-cyan-300 text-sm font-medium">
+                    Modul 2
+                </div>
+                <!-- Mobile Button -->
+                <button id="menuBtn" class="md:hidden text-white text-2xl">
+                    ☰
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobileMenu" class="hidden md:hidden bg-indigo-950/95 backdrop-blur-xl border-t border-white/10">
+            <div class="px-6 py-6 space-y-5 text-gray-300 font-medium">
+                <a href="/index.html" class="block hover:text-cyan-400 transition">
+                    ← Kembali ke Beranda
+                </a>
+                <hr class="border-white/10">
+                <a href="#overview" class="block hover:text-cyan-400 transition">
+                    Overview
+                </a>
+                <a href="#konsep" class="block hover:text-cyan-400 transition">
+                    Konsep Dasar
+                </a>
+                <a href="#eksplorasi" class="block hover:text-cyan-400 transition">
+                    Eksplorasi
+                </a>
+                <div class="pt-4">
+                    <span class="inline-bock bg-cyan-500/20 border border-cyan-400/40 px-4 py-1 rounded-full text-cyan-300 text-sm">
+                        Modul 1
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <main>
+        <!-- Hero -->
+        <header id="overview" class="min-h-screen py-32 flex items-center">
+            <div class="max-w-5xl mx-auto px-6 text-center">
+                <h1 class="text-5xl md:text-6xl font-bold text-cyan-400 mb-8">
+                    Modul 2 —<br>Grafik Fungsi Trigonometri
+                </h1>
+                <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
+                    Modul ini membahas bagaimana grafik fungsi sinus, cosinus, dan tangen berubah ketika amplitudo, periode, dan translasi dimodifikasi.
+                </p>
+                <div class="mt-10 flex justify-center gap-6">
+                    <a href="#konsep" class="bg-cyan-500 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-600 transition">
+                        Pelajari Konsep
+                    </a>
+                    <a href="#eksplorasi" class="border border-cyan-400 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-500/10 transition">
+                        Mulai Eksplorasi
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Konsep Dasar -->
+        <section id="konsep" class="min-h-screen py-28 bg-slate-900">
+            <div class="max-w-6xl mx-auto px-6">
+                <h2 class="text-4xl font-bold text-cuan-400 text-center mb-16">
+                    Konsep Dasar Fungsi Trigonometri
+                </h2>
+                <div class="space-y-16 text-gray-300 leading-relaxed">
+                    <!-- Konsep 1 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            1. Hubungan dengan Unit Circle
+                        </h3>
+                        <p>
+                            Fungsi sinus dan cosinus berasal dari lingkaran satuan (unit circle), yaitu lingkaran berjari-jari 1 dengan pusat di (0, 0).
+                        </p>
+                        <ul class="mt-4 space-y-2 list-disc list-inside">
+                            <li>cos(x) = Koordinat x pada lingkaran</li>
+                            <li>sin(x) = Koordinat y pada lingkaran</li>
+                            <li>tan(x) = sin(x) / cos(x)</li>
+                        </ul>
+                        <p class="mt-4">
+                            Ketika sudut bertambah, titik bergerak mengelilingi lingkaran, dan proyeksinya membentuk grafik gelombang.
+                        </p>
+                    </div>
+                    <!-- Konsep 2 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            2. Bentuk Umum Fungsi
+                        </h3>
+                        <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                            <p>y = A sin(Bx + C)</p>
+                            <p>y = A cos(Bx + C)</p>
+                            <p>y = A tan(Bx + C)</p>
+                        </div>
+                    </div>
+                    <!-- Konsep 3 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            3. Makna Setiap Parameter
+                        </h3>
+                        <ul class="space-y-4">
+                            <li>
+                                <strong class="text-cyan-300">B (Periode / Frekuensi)</strong><br>Mengatur panjang satu gelombang penuh.<br>
+                                Periode fungsi sinus dan cosinus:
+                                <br><strong>T = 2π / B</strong>
+                                <br>Semakin besar B → grafik semakin rapat.
+                            </li>
+                            <li>
+                                <strong class="text-cyan-300">C (Translasi / Phase Shift)</strong><br>
+                                Menggeser grafik ke kiri atau kanan.
+                                <br>Pergeseran = −C/B
+                            </li>
+                        </ul>
+                    </div>
+                    <!-- Konsep 4 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            4. Periode dan Frekuensi
+                        </h3>
+                        <p>
+                            Periode adalah panjang satu siklus lengkap. Untuk fungsi datar:
+                        </p>
+                        <ul class="mt-4 list-disc list-inside space-y-2">
+                            <li>sin(x) dan cos(x) → periode = 2π</li>
+                            <li>tan(x) → periode = π</li>
+                        </ul>
+                        <p class="mt-4">
+                            Jika B berubah, maka periode menjadi: T = 2π/B (untuk sin dan cos)
+                        </p>
+                    </div>
+                    <!-- Konsep 5 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            5. Perbandingan Grafik
+                        </h3>
+                        <div class="grid md:grid-cols-3 gap-6">
+                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 class="font-semibold text-cyan-300 mb-3">Sinus</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>Mulai dari (0, 0)</li>
+                                    <li>Naik ke maksimum</li>
+                                    <li>Gelombang halus</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 class="font-semibold text-cyan-300 mb-3">Cosinus</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>Mulai dari maksimum</li>
+                                    <li>Bergeser 90° dari sinus</li>
+                                    <li>Gelombang halus</li>
+                                </ul>
+                            </div>
+                            <div class="bg-white/5 p-6 rounded-2xl border border-white/10">
+                                <h4 class="font-semibold text-cyan-300 mb-3">Tangen</h4>
+                                <ul class="text-sm space-y-2">
+                                    <li>Tidak memiliki amplitudo tetap</li>
+                                    <li>Memiliki asimtot vertikal</li>
+                                    <li>periode lebih pendek (π)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Konsep 6 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            6. Interpretasi Visual dalam Eksplorasi
+                        </h3>
+                        <p>Saat Anda mengubah slider:</p>
+                        <ul class="mt-4 list-disc list-inside space-y-2">
+                            <li>Amplitudi → tinggi gelombang berubah.</li>
+                            <li>Periode → kerapatan gelombang berubah.</li>
+                            <li>Translasi → grafik bergeser horizontal.</li>
+                        </ul>
+                        <p class="mt-4">
+                            Perhatikan bagaimana perubahan kecil pada parameter dapat menghasilkan perubahan signifikan pada grafik.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Eksplorasi -->
+        <section id="eksplorasi" class="min-h-screen max-w-6xl mx-auto px-6 py-28">
+            <h2 class="text-4xl font-bold text-cyan-400 text-center mb-6">
+                Eksplorasi Interaktif Grafik
+            </h2>
+            <p class="text-gray-300 text-center mb-12">
+                Ubah parameter dan amati bagaimana grafik berubah secara real-time.
+            </p>
+            <div class="grid md:grid-cols-2 gap-12 items-center justify-items-center">
+                <!-- Canvas -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 w-full max-w-xl">
+                    <canvas id="graphCanvas" width="600" height="400" class="w-full rounded-2xl"></canvas>
+                    <div class="mt-6 flex gap-5 justify-center">
+                        <button id="playBtn" class="bg-cyan-500 px-6 py-2 rounded-xl font-semibold hover:bg-cyan-600 transition">
+                            Play Animation
+                        </button>
+                        <button id="stopBtn" class="bg-gray-700 px-6 py-2 rounded-xl font-semibold hover:bg-gray-600 transition">
+                            Stop
+                        </button>
+                    </div>
+                </div>
+                <!-- Control -->
+                <div class="bg-white/5 backdrop-blur-xl p-8 rounded-3xl border border-white/10 w-full max-w-md">
+                    <label class="font-semibold">Jenis Fungsi</label>
+                    <select id="funcType" class="w-full mt-2 mb-2 p-2 rounded bg-slate-800 border border-white/10">
+                        <option value="sin">Sinus</option>
+                        <option value="cos">Cosinus</option>
+                        <option value="tan">Tangen</option>
+                    </select>
+                    <label>Amplitudo (A)</label>
+                    <input type="range" id="amp" min="0.5" max="5" step="0.1" value="1" class="w-full mb-6">
+                    <label>Periode (B)</label>
+                    <input type="range" id="period" min="0.5" max="5" step="0.1" value="1" class="w-full mb-6">
+                    <label>Translasi (C)</label>
+                    <input type="range" id="shift" min="-6.28" max="6.28" step="0.1" value="0" class="w-full mb-6">
+                    <div class="mt-10 space-y-3 text-sm border-t border-white/10 pt-6 text-gray-300">
+                        <p>x (radian): <span id="infoX">0</span></p>
+                        <p>y: <span id="infoY">0</span></p>
+                        <p>Periode: <span id="infoPeriod">2π</span></p>
+                        <p>Persamaan: <span id="infoEq">y = sin(x)</span></p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        // Mobile Menu
+        document.getElementById('menuBtn').addEventListener('click', () =>{
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        });
+
+        // Eksplorasi
+        const canvas = document.getElementById('graphCanvas');
+        const ctx = canvas.getContext('2d');
+
+        const amp = document.getElementById('amp');
+        const period = document.getElementById('period');
+        const shift = document.getElementById('shift');
+        const funcType = document.getElementById('funcType');
+
+        const playBtn = document.getElementById('playBtn');
+        const stopBtn = document.getElementById('stopBtn');
+
+        let animation;
+        let phase = 0;
+        let isPlaying = false;
+        let currentX = 0;
+
+        function drawGrid() {
+            ctx.strokeStyle = 'rgba(0,255,255,0.1)';
+            ctx.lineWidth = 1;
+
+            for (let x = 0; x < canvas.width; x += 50) {
+                ctx.beginPath();
+                ctx.moveTo(x, 0);
+                ctx.lineTo(x, canvas.height);
+                ctx.stroke();
+            }
+
+            for (let y = 0; y < canvas.height; y += 50) {
+                ctx.beginPath();
+                ctx.moveTo(0, y);
+                ctx.lineTo(canvas.width, y);
+                ctx.stroke();
+            }
+
+            ctx.strokeStyle = 'rgba(0,255,255,0.3)'
+            ctx.beginPath();
+            ctx.moveTo(0, canvas.height/2);
+            ctx.lineTo(canvas.width, canvas.height/2);
+            ctx.stroke();
+        }
+
+        function drawGraph() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawGrid();
+
+            ctx.beginPath();
+            ctx.strokeStyle = 'cyan';
+            ctx.lineWidth = 2;
+
+            const A = parseFloat(amp.value);
+            const B = parseFloat(period.value);
+            const C = parseFloat(shift.value);
+
+            for (let x = 0; x < canvas.width; x++) {
+                let angle = (x / canvas.width) * 4 * Math.PI;
+                let y;
+
+                if (funcType.value === 'sin') {
+                    y = A * Math.sin(B * angle + C + phase);
+                } else if (funcType.value === 'cos') {
+                    y = A * Math.cos(B * angle + C + phase);
+                } else {
+                    y = A * Math.tan(B * angle + C + phase);
+                    if (Math.abs(y) > 10) continue;
+                }
+                
+                let canvasY = canvas.height / 2 - y * 40;
+
+                if (x === 0) ctx.moveTo(x, canvasY);
+                else ctx.lineTo(x, canvasY);
+            } 
+
+            ctx.stroke();
+
+            currentX = phase % (4 * Math.PI);
+            
+            let yValue;
+            if (funcType.value === 'sin')
+                yValue = A * Math.sin(B * currentX + C);
+            else if (funcType.value === 'cos')
+                yValue = A * Math.cos(B * currentX + C);
+            else
+                yValue = A * Math.tan(B * currentX + C);
+
+            let px = (currentX / (4 * Math.PI)) * canvas.width;
+            let py = canvas.height / 2 - yValue * 40;
+
+            ctx.beginPath();
+            ctx.arc(px, py, 6, 0, Math.PI * 2);
+            ctx.fillStyle = 'cyan';
+            ctx.fill();
+
+            document.getElementById('infoX').innerText = currentX.toFixed(2);
+            document.getElementById('infoY').innerText = yValue.toFixed(2);
+            document.getElementById('infoPeriod').innerText = 
+            (2 * Math.PI / B).toFixed(2);
+            document.getElementById('infoEq').innerText = 
+            `y = ${A}${funcType.value}(${B}x + ${C})`;
+        }
+
+        function animate() {
+            if(!isPlaying) return;
+            phase += 0.05;
+            drawGraph();
+            animation = requestAnimationFrame(animate);
+        }
+
+        playBtn.onclick = () => {
+            if (!isPlaying) {
+                isPlaying = true;
+                animate();
+            }
+        };
+
+        stopBtn.onclick = () => {
+            isPlaying = false;
+            cancelAnimationFrame(animation);
+        };
+
+        amp.oninput = drawGraph;
+        period.oninput = drawGraph;
+        shift.oninput = drawGraph;
+        funcType.onchange = drawGraph;
+
+        drawGraph();
+    </script>
+
+    <footer class="bg-slate-950 border-t border-white/10">
+        <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-14 text-gray-400">
+            <!-- Brand -->
+            <div>
+                <div class="flex items-center mb-6 gap-3">
+                    <img src="/assets/logo.png" alt="logo" class="h-14">
+                    <h3 class="text-2xl font-bold text-cyan-400">TrigLab</h3>
+                </div>
+                <p class="leading-relaxed text-justify">
+                    Laboratorium Trigonometri Interaktif Digital yang dirancang untuk meningkatkan pemahaman konseptual melalui visualisasi dan eksperimen.
+                </p>
+            </div>
+            <!-- Navigation -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Navigasi</h4>
+                <ul class="space-y-2">
+                    <li><a href="/index.html" class="hover:text-cyan-400" target="_blank">Beranda</a></li>
+                    <li><a href="/index.html#tentang" class="hover:text-cyan-400" target="_blank">Tentang</a></li>
+                    <li><a href="/index.html#modul" class="hover:text-cyan-400" target="_blank">Modul</a></li>
+                </ul>
+            </div>
+            <!-- Modul -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Modul</h4>
+                <ul class="space-y-2">
+                    <li><a href="/modul/modul1.html" class="hover:text-cyan-400" target="_blank">Modul 1 — Sudut dan Radian</a></li>
+                    <li><a href="/modul/modul2.html" class="hover:text-cyan-400" target="_blank">Modul 2 — Grafik Fungsi Trigonometri</a></li>
+                    <li><a href="/modul/modul3.html" class="hover:text-cyan-400" target="_blank">Modul 3 — Identitas Trigonometri</a></li>
+                    <li><a href="/modul/modul4.html" class="hover:text-cyan-400" target="_blank">Modul 4 — Persamaan Trigonometri</a></li>
+                    <li><a href="/modul/modul5.html" class="hover:text-cyan-400" target="_blank">Modul 5 — Aplikasi Trigonometri</a></li>
+                    <li><a href="/modul/modul6.html" class="hover:text-cyan-400" target="_blank">Modul 6 — Eksplorasi Reflektif</a></li>
+                </ul>
+            </div>
+            <!-- Kontak -->
+            <div>
+                <h4 class="font-semibold text-white mb-4">Kontak</h4>
+                <p>Email: triglab@gmail.com</p>
+                <p>Indonesia</p>
+            </div>
+        </div>
+        <!-- Bottom -->
+        <div class="relative">
+            <div class="w-3/4 h-px bg-white/10 mx-auto"></div>
+            <div class="max-w-7xl mx-auto px-6 py-6 text-sm text-gray-500 text-right">
+                <p>© 2026 TrigLab. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
