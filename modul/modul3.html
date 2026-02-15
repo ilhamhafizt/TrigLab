@@ -104,7 +104,8 @@
                     Modul 3 —<br>Identitas Trigonometri
                 </h1>
                 <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-                    Modul ini membahas ...
+                    Modul ini mengajak Anda menginvestigasi identitas trigonometri melalui eksperimen digital interaktif dan pembuktian berbasis penalaran matematis.<br> <br>
+                    Anda tidak hanya menerima rumus sebagai fakta, tetapi akan memverifikasi, menganalisis, dan membuktikannya secara konseptual.
                 </p>
                 <div class="mt-10 flex justify-center gap-6">
                     <a href="#konsep" class="bg-cyan-500 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-600 transition">
@@ -119,23 +120,116 @@
 
         <!-- Konsep Dasar -->
         <section id="konsep" class="min-h-screen py-28 bg-slate-900">
-            <div class="max-w-6xl mx-auto px-6">
-                
+            <div class="max-w-6xl mx-auto px-6 space-y-20 text-gray-300 leading-relaxed">
+                <h2 class="text-4xl font-bold text-cyan-400 text-center">
+                    Konsep Dasar Identitas Trigonometri
+                </h2>
+                <!-- Konsep 1 -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">
+                        1. Apa Itu Identitas Trigonometri?
+                    </h3>
+                    <p>Identitas trigonometri adalah persamaan yang benar untuk <b>SEMUA</b> nilai variabel dalam domainnya.</p>
+                    <p class="mt-4">
+                        Contoh:
+                    </p>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 my-6">
+                        sin²x + cos²x = 1
+                    </div>
+                    <p>Berbeda dengan persamaan biasa seperti:</p>
+                    <div class="bg-white/10 p-6 rounded-2xl border border-white/10 my-6">
+                        sin x = 1/2
+                    </div>
+                    <p>yang hanya benar untuk nilai tertentu, identitas berlaku untuk semua x.</p>
+                </div>
+                <!-- Konsep 2 -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">
+                        2. Dari Mana Identitas Berasal?
+                    </h3>
+                    <p>Identitas dasar berasal dari lingkran satuan:</p>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 my-6">
+                        x² + y² = 1
+                    </div>
+                    <p>Karena x = cos θ dan y = sin θ, maka diperoleh:</p>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 my-6">
+                        cos²θ + sin²θ = 1
+                    </div>
+                    <p>Identitas lain diturunkan melalui manipulasi aljabar, misalnya membagi kedua sisi dengan cos²θ.</p>
+                </div>
+                <!-- Konsep 3 -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">
+                        3. Strategi Pembuktian Identitas
+                    </h3>
+                    <ul class="list-disc list-inside space-y-3">
+                        <li>Ubah salah satu sisi (biasanya <i>Left Hand Side</i> (LHS)).</li>
+                        <li>Gunakan identitas dasar.</li>
+                        <li>Gunakan manipulasi aljabar.</li>
+                        <li>Hindari mengubah kedua sisi sekaligus</li>
+                    </ul>
+                </div>
+                <!-- Konsep 4 -->
+                <div>
+                    <h3 class="text-2xl font-semibold text-white mb-6">
+                        4. Contoh Pembuktian
+                    </h3>
+                    <p>Buktikan:</p>
+                    <div class="bg-white/5 p-6 rounded-2xl border border-white/10 my-6">
+                        1 + tan²x = sec²x
+                    </div>
+                    <p>
+                        Gunakan tan x = sin x / cos x dan sec x = 1 / cos x
+                    </p>
+                    <p class="mt-4">1 + (sin²x / cos²x)</p>
+                    <p>= (cos²x + sin²x) / cos²x</p>
+                    <p>= 1 / cos²x</p>
+                    <p>= sec²x</p>
+                    <p class="mt-6"><b>TERBUKTI.</b></p>
+                </div>
             </div>
         </section>
 
         <!-- Eksplorasi -->
         <section id="eksplorasi" class="min-h-screen max-w-6xl mx-auto px-6 py-28">
-            
+            <h2 class="text-4xl font-bold text-cyan-400 text-center mb-12">
+                Eksplorasi Digital — Apakah Ini Identitas
+            </h2>
+            <div class="grid md:grid-cols-2 gap-12">
+                <div class="bg-white/5 p-8 rounded-3xl border border-white/10">
+                    <label class="block font-semibold mb-2">Pilih Sisi Kiri</label>
+                    <select id="lhsSelect" class="w-full p-3 rounded bg-slate-800 mb-6">
+                        <option value="sin2cos2">sin²x + cos²x</option>
+                        <option value="tan2plus1">1 + tan²x</option>
+                        <option value="sin2x">sin(2x)</option>
+                    </select>
+
+                    <label class="block font-semibold mb-2">Pilih Sisi Kanan</label>
+                    <select id="rhsSelect" class="w-full p-3 rounded bg-slate-800 mb-6">
+                        <option value="1">1</option>
+                        <option value="sec2">sec²x</option>
+                        <option value="2sincos">2 sin x cos x</option>
+                    </select>
+
+                    <label class="block font-semibold mb-2">
+                        Geser Nilai x (radian)
+                    </label>
+                    <input type="range" id="angleSlider" min="-6.28" max="6.28" step="0.01" value="1" class="w-full mb-6">
+                    <div class="space-y-3 text-sm border-t border-white/10 pt-6">
+                        <p>Sisi Kiri = <span id="lhsValue"></span></p>
+                        <p>Sisi Kanan = <span id="rhsValue"></span></p>
+                        <p>Selisih = <span id="diffValue"></span></p>
+                        <p>Status = <span id="statusValue" class="font-semibold"></span></p>
+                    </div>
+                </div>
+                <div class="bg-white-5 p-8 rounded-3xl border border-white/10">
+                    <canvas id="identityCanvas" width="500" height="400" class="w-full rounded-2xl"></canvas>
+                </div>
+            </div>
         </section>
     </main>
 
-    <script>
-        // Mobile Menu
-        document.getElementById('menuBtn').addEventListener('click', () =>{
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-    </script>
+    <script src="/js/modul3.js"></script>
 
     <footer class="bg-slate-950 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-14 text-gray-400">
