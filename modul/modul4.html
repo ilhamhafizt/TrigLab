@@ -104,7 +104,7 @@
                     Modul 4 —<br>Persamaan Trigonometri
                 </h1>
                 <p class="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto">
-                    Modul ini membahas ...
+                    Modul ini membahas pemodelan dan penyelesaian persamaan trigonometri melalui dua pendekatan utama: analitik dan grafik. Siswa akan memahami bagaimana solusi diperoleh secara aljabar serta bagaimana solusi tersebut muncul sebagai titik potong grafik fungsi.
                 </p>
                 <div class="mt-10 flex justify-center gap-6">
                     <a href="#konsep" class="bg-cyan-500 px-6 py-3 rounded-xl font-semibold hover:bg-cyan-600 transition">
@@ -120,22 +120,118 @@
         <!-- Konsep Dasar -->
         <section id="konsep" class="min-h-screen py-28 bg-slate-900">
             <div class="max-w-6xl mx-auto px-6">
-                
+                <h2 class="text-4xl font-bold text-cyan-400 mb-16 text-center">Konsep Dasar Persamaan Trigonometri</h2>
+                <div class="space-y-16 text-gray-300 leading-relaxed text-justify">
+                    <!-- Konsep 1 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            1. Apa Itu Persamaan Trigonometri
+                        </h3>
+                        <p>
+                            Persamaan trigoonmetri adalah persamaan yang memuat fungsi trigonometri seperti sin x, cos x, atau tan x sebagai bagian dari variabelnya. Tujuan penyelesaian persamaan trigonometri adalah menentukan semua nilai x yang memenuhi persamaan tersebut.
+                        </p>
+                        <p class="mt-4">
+                            Berbeda dengan persamaan aljabar biasa, solusi persamaan trigonometri tidak hanya satu nilai, karena fungsi trigonometri bersifat periodik.
+                        </p>
+                    </div>
+                    <!-- Konsep 2 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            2. Konsep Perioditas dan Solusi Umum
+                        </h3>
+                        <p>
+                            Fungsi sinus dan cosinus memiliki periode 2π, sedangkan fungsi tangen memiliki periode π. Artinya, jika suatu nilai x₀ merupakan solusi, maka solusi umum dapat dinyatakan sebagai:
+                        </p>
+                        <p class="mt-4 text-cyan-300">
+                            x = x₀ + 2πk (untuk sin dan cos)
+                        </p>
+                        <p class="mt-4 text-cyan-300">
+                            x = x₀ + πk (untuk tan)
+                        </p>
+                        <p class="mt-4">
+                            dengan k ∈ ℤ (bilangan bulat).
+                        </p>
+                    </div>
+                    <!-- Konsep 3 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            3. Pendekatan Analitik
+                        </h3>
+                        <p>
+                            Pendekatan analitik dilakukan dengan memanipulasi identitas trigonometri hingga diperoleh bentuk dasar seperti:
+                        </p>
+                        <ul class="list-disc ml-4 mt-4 space-y-2">
+                            <li>sin x = a</li>
+                            <li>cos x = a</li>
+                            <li>tan x = a</li>
+                        </ul>
+                        <p class="mt-4">
+                            Setelah diperoleh bentuk dasar tersebut, solusi dapat ditentukan menggunakan sifat invers fungsi trigonometri.
+                        </p>
+                    </div>
+                    <!-- Konsep 4 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            4. Pendekatan Grafik
+                        </h3>
+                        <p>
+                            Secara grafik, solusi persamaan trigonometri merupakan titik potong antara grafik fungsi trigonometri dan grafik fungsi horizontal y = a. Dengan pendekatan ini, siswa dapat melihat bahwa solusi bukan hanya hasil perhitungan simbolik, tetapi benar-benar titik pertemuan dua kurva.
+                        </p>
+                    </div>
+                    <!-- Konsep 5 -->
+                    <div>
+                        <h3 class="text-2xl font-semibold text-white mb-4">
+                            5. Hubungan Analitik dan Grafik
+                        </h3>
+                        <p>
+                            Pendekatan analitik memberikan bentuk solusi secara eksak, sedangkan pendekatan grafik memberikan intuisi visual. Kedua pendekatan ini saling melengkapi dan membantu pemahaman konseptual yang lebih mendalam.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
         <!-- Eksplorasi -->
         <section id="eksplorasi" class="min-h-screen max-w-6xl mx-auto px-6 py-28">
-            
+            <h2 class="text-3xl font-bold text-cyan-400 mb-8 text-center">
+                Eksplorasi Interaktif
+            </h2>
+            <div class="bg-gray-800 p-8 rounded-2xl shadow-lg">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <label>Fungsi:</label>
+                        <select id="functionSelect" class="w-full p-2 bg-gray-700 rounded mt-2">
+                            <option value="sin">sin x</option>
+                            <option value="cos">cos x</option>
+                            <option value="tan">tan x</option>
+                        </select>
+                        <label class="mt-6 block">Nilai a (y = a):</label>
+                        <input type="range" id="slider" min="-1.5" step="0.05" value="0.05" class="w-full mt-2">
+                        
+                        <label class="mt-6 block">Interval:</label>
+                        <select id="intervalSelect" class="w-full p-2 bg-gray-700 rounded mt-2">
+                            <option value="2pi">0 sampai 2π</option>
+                            <option value="4pi">0 sampai 4π</option>
+                            <option value="neg2pi">-2π sampai 2π</option>
+                        </select>
+                        <button id="playBtn" class="mt-7 bg-cyan-500 px-6 py-2 rounded-xl font-semibold hover:bg-cyan-600 transition">
+                            ▶ Play Animation
+                        </button>
+                    </div>
+                    <div class="text-gray-300">
+                        <p><b>Nilai a:</b> <span id="valueA"></span></p>
+                        <p class="mt-4"><b>Solusi pada Interval:</b></p>
+                        <p id="solutions" class="text-cyan-400 mt-2"></p>
+                        <p class="mt-6"><b>Solusi Umum:</b></p>
+                        <p id="generalSolution" class="text-green-400 mt-2"></p>
+                    </div>
+                </div>
+                <canvas id="graphCanvas"class="w-full mt-10 bg-gray-900 rounded-xl"></canvas>
+            </div>
         </section>
     </main>
 
-    <script>
-        // Mobile Menu
-        document.getElementById('menuBtn').addEventListener('click', () =>{
-            document.getElementById('mobileMenu').classList.toggle('hidden');
-        });
-    </script>
+    <script src="/js/modul4.js"></script>
 
     <footer class="bg-slate-950 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 py-16 grid md:grid-cols-4 gap-14 text-gray-400">
